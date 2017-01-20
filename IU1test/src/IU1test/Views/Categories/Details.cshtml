@@ -1,0 +1,40 @@
+@model IU1test.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <h2>Posts with the <i>@Html.DisplayFor(model => model.Name)</i> category</h2>
+            <table class="table">
+
+                <tr>
+                    <th>Post Title</th>
+                    <th>Content</th>
+                </tr>
+                @foreach (var item in Model.Posts)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Details)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

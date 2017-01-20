@@ -1,0 +1,74 @@
+@model IEnumerable<IU1test.Models.Post>
+
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h2>Blog Posts</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find in Titel or Content: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.TitelSortParm">@Html.DisplayNameFor(model => model.Titel)</a>
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Details)
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DateCreatedSortParm">@Html.DisplayNameFor(model => model.DateCreated)</a>
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DateEditedSortParm">@Html.DisplayNameFor(model => model.DateModified)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titel)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PostID">Edit <span class="glyphicon glyphicon-edit"></span></a> |
+                <a asp-action="Details" asp-route-id="@item.PostID">Details <span class="glyphicon glyphicon-list-alt"></span></a> |
+                <a asp-action="Delete" asp-route-id="@item.PostID">Delete <span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

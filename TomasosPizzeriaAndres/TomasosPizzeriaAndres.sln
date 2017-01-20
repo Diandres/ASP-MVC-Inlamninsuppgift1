@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FCC8B6E9-4F86-4623-B436-391C6D856A0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58C2B728-3D4D-4622-9725-CE0BE6A70844}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TomasosPizzeriaAndres", "src\TomasosPizzeriaAndres\TomasosPizzeriaAndres.xproj", "{D4BC321B-D9DA-4F9C-BC5F-1EBD7D54ADD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4BC321B-D9DA-4F9C-BC5F-1EBD7D54ADD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BC321B-D9DA-4F9C-BC5F-1EBD7D54ADD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4BC321B-D9DA-4F9C-BC5F-1EBD7D54ADD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BC321B-D9DA-4F9C-BC5F-1EBD7D54ADD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D4BC321B-D9DA-4F9C-BC5F-1EBD7D54ADD9} = {FCC8B6E9-4F86-4623-B436-391C6D856A0C}
+	EndGlobalSection
+EndGlobal

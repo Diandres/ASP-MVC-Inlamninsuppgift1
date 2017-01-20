@@ -1,0 +1,103 @@
+﻿@model IU1test.Models.PostViewModels.ViewModelDemoVM
+
+@{
+    ViewBag.Title = "Category Post Statistics";
+}
+
+<h2>Andres Blog</h2>
+
+<p>
+    <a asp-action="Create">Create a new Blog post</a>
+</p>
+
+
+<div class="row">
+    <div class="col-lg-2">
+        <h2>Post By Category</h2>
+
+        <table>
+            <tr>
+                <th>
+                    Category Name
+                </th>
+                <th>
+                    Amount of Posts
+                </th>
+            </tr>
+
+            @foreach (var item in Model.allCategories)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Categories" asp-action="Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.CategoryName)</a>
+                    </td>
+                    <td>
+                        @item.PostCount
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-lg-10">
+        @*<form asp-action="Index" method="get">
+            <div class="form-actions no-color">
+                <p>
+                    Find in Titel or Content: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+                    <input type="submit" value="Search" class="btn btn-default" /> |
+                    <a asp-action="Index">Back to List</a>
+                </p>
+            </div>
+        </form>*@
+        @foreach (var item in Model.allPosts)
+        {
+            var category = (from data in Model.allCategories where data.ID == item.CategoryID select data.CategoryName).First().ToString();
+            <table class="table" border="1">
+                <thead>
+
+                    <tr>
+                        <th id="post" class="text-capitalize">
+                            <strong>@Html.DisplayFor(modelItem => item.Titel)</strong> <span class="glyphicon glyphicon-envelope"></span>
+                        </th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <p id="post">@Html.DisplayFor(modelItem => item.Details)</p>
+
+                            <p id="post">@Html.DisplayFor(modelItem => item.Category.Name)</p>
+
+                            <a asp-controller="Categories" asp-action="Details" asp-route-id="@item.CategoryID">@(category)</a>
+                            
+                        </td>
+                    </tr>
+                    <tr class="text-right small">
+                        <td>
+                            Posted on @Html.DisplayFor(modelItem => item.DateCreated)<br />
+                            Last Modified on @Html.DisplayFor(modelItem => item.DateModified)
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PostID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.PostID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+                        </td>
+
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        }
+
+    </div>
+
+    
+</div>

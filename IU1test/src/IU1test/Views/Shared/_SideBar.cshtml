@@ -1,0 +1,30 @@
+@*@model IU1test.Models.PostViewModels.PostInCategories
+
+@{
+    ViewBag.Title = "Category Post Statistics";
+}
+<h2>Category Post Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Amount of Posts
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @item.PostCount
+            </td>
+        </tr>
+    }
+</table>*@
+
